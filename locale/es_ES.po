@@ -1,0 +1,15 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:account.payment.journal,csb58_include_domicile:"
+msgid "Include Domicile"
+msgstr "Incluye domicilio"
+
+msgctxt "selection:account.payment.journal,process_method:"
+msgid "CSB 58"
+msgstr "CSB 58"
+
+msgctxt "view:account.payment.journal:"
+msgid "CSB 58 Options"
+msgstr "Opciones CSB 58"
