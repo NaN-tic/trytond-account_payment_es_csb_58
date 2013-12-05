@@ -157,20 +157,20 @@ class Group:
             return write([record])
 
         values = Group.set_default_csb58_payment_values(group)
-        text = set_presenter_header_record() + '\r\n'
+        text = set_presenter_header_record()
         values['record_count'] += 1
-        text += set_ordering_header_record() + '\r\n'
+        text += set_ordering_header_record()
         values['record_count'] += 1
         for receipt in values['receipts']:
-            text += set_required_individual_record() + '\r\n'
+            text += set_required_individual_record()
             values['record_count'] += 1
             values['ordering_records'] += 1
             if values['include_domicile']:
-                text += set_address_individual_record() + '\r\n'
+                text += set_address_individual_record()
                 values['record_count'] += 1
                 values['ordering_records'] += 1
         values['ordering_record_count'] = values['ordering_records'] + 2
-        text += set_ordering_footer_record() + '\r\n'
+        text += set_ordering_footer_record()
         values['record_count'] += 2
-        text += set_presenter_footer_record() + '\r\n'
+        text += set_presenter_footer_record()
         group.attach_file(text)
