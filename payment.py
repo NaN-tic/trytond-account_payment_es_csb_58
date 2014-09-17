@@ -44,13 +44,11 @@ class Group:
         values = self.set_default_payment_values()
         values['include_domicile'] = values['payment_journal'].\
             csb58_include_domicile
-        values['bank_account'] = values['bank_account'].numbers[0].number
         values['record_count'] = 0
         values['ordering_records'] = 0
         values['ordering_record_count'] = 0
         for receipt in values['receipts']:
             receipt['reference'] = receipt['party'].code
-            receipt['bank_account'] = receipt['bank_account'].numbers[0].number
 
             if not receipt['address']:
                 self.raise_user_error('configuration_error',
