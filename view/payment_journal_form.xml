@@ -5,7 +5,7 @@ copyright notices and license terms. -->
 <data>
     <xpath expr="/form/field[@name=&quot;ine_code&quot;]"
             position="after">
-        <group col="2" colspan="4" id="csb_58" states="{'invisible': Eval('process_method') != 'csb58'}">
+        <group col="2" colspan="4" id="csb_58">
             <separator string="CSB 58 Options" colspan="2" id="csb_18_separator"/>
             <label name="csb58_include_domicile"/>
             <field name="csb58_include_domicile"/>

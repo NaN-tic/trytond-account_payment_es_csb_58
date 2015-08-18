@@ -4,6 +4,7 @@
 # the full copyright notices and license terms.
 from trytond.pool import PoolMeta
 from trytond.model import fields
+from trytond.pyson import Eval
 import logging
 
 try:
@@ -37,6 +38,16 @@ class Journal:
     @staticmethod
     def default_csb58_include_domicile():
         return False
+
+    @classmethod
+    def view_attributes(cls):
+        attributes = super(Journal, cls).view_attributes()
+        attributes.append(
+            ('/form/group[@id="csb_58"]', 'states', {
+                    'invisible': Eval('process_method') != 'csb58',
+                    })
+                )
+        return attributes
 
 
 class Group:
