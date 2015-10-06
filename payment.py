@@ -77,7 +77,7 @@ class Group:
             record = Record(c58.PRESENTER_HEADER_RECORD)
             record.record_code = '51'
             record.data_code = '70'
-            record.nif = values['vat_number']
+            record.nif = values['vat_code']
             record.suffix = values['suffix']
             record.creation_date = values['creation_date']
             record.name = values['company_name']
@@ -89,7 +89,7 @@ class Group:
             record = Record(c58.ORDERING_HEADER_RECORD)
             record.record_code = '53'
             record.data_code = '70'
-            record.nif = values['vat_number']
+            record.nif = values['vat_code']
             record.suffix = values['suffix']
             record.creation_date = values['creation_date']
             record.name = values['company_name']
@@ -102,7 +102,7 @@ class Group:
             record = Record(c58.REQUIRED_INDIVIDUAL_RECORD)
             record.record_code = '56'
             record.data_code = '70'
-            record.nif = values['vat_number']
+            record.nif = values['vat_code']
             record.suffix = values['suffix']
             record.reference = receipt['reference']
             record.name = receipt['name']
@@ -118,7 +118,7 @@ class Group:
             record = Record(c58.OPTIONAL_INDIVIDUAL_RECORD)
             record.record_code = '56'
             record.data_code = '71'
-            record.nif = values['vat_number']
+            record.nif = values['vat_code']
             record.suffix = values['suffix']
             record.reference = receipt['reference']
             record.concept_2 = ''
@@ -130,7 +130,7 @@ class Group:
             record = Record(c58.ADDRESS_INDIVIDUAL_RECORD)
             record.record_code = '56'
             record.data_code = '76'
-            record.nif = values['vat_number']
+            record.nif = values['vat_code']
             record.suffix = values['suffix']
             record.reference = receipt['reference']
             record.payer_address = receipt['street']
@@ -145,7 +145,7 @@ class Group:
             record = Record(c58.ORDERING_FOOTER_RECORD)
             record.record_code = '58'
             record.data_code = '70'
-            record.nif = values['vat_number']
+            record.nif = values['vat_code']
             record.suffix = values['suffix']
             record.amount = values['amount']
             record.payment_line_count = str(values['ordering_records'])
@@ -156,7 +156,7 @@ class Group:
             record = Record(c58.PRESENTER_FOOTER_RECORD)
             record.record_code = '59'
             record.data_code = '70'
-            record.nif = values['vat_number']
+            record.nif = values['vat_code']
             record.suffix = values['suffix']
             record.ordering_count = '0001'
             record.amount = values['amount']
