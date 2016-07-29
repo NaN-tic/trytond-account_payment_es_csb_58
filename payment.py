@@ -6,7 +6,8 @@ from trytond.pool import PoolMeta
 from trytond.model import fields
 import logging
 try:
-    from retrofix import Record, write, c58
+    from retrofix.record import Record, write
+    from retrofix import c58
 except ImportError:
     message = ('Unable to import retrofix library.\n'
                'Please install it before install this module.')
