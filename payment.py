@@ -8,7 +8,8 @@ from trytond.pyson import Eval
 import logging
 
 try:
-    from retrofix import Record, write, c58
+    from retrofix.record import Record, write
+    from retrofix import c58
 except ImportError:
     logger = logging.getLogger(__name__)
     message = ('Unable to import retrofix library.\n'
