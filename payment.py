@@ -8,8 +8,8 @@ from trytond.pyson import Eval
 import logging
 
 try:
-    from retrofix.record import Record, write
     from retrofix import c58
+    from retrofix.record import Record, write as retrofix_write
 except ImportError:
     logger = logging.getLogger(__name__)
     message = ('Unable to import retrofix library.\n'
@@ -84,7 +84,7 @@ class Group:
             record.name = values['company_name']
             record.bank_code = str(values['bank_account'][0:4])
             record.bank_office = str(values['bank_account'][4:8])
-            return write([record])
+            return retrofix_write([record])
 
         def set_ordering_header_record():
             record = Record(c58.ORDERING_HEADER_RECORD)
@@ -97,7 +97,7 @@ class Group:
             record.account = values['bank_account']
             record.procedure = '06'
             record.ine = values['ine_code'].zfill(9)
-            return write([record])
+            return retrofix_write([record])
 
         def set_required_individual_record():
             record = Record(c58.REQUIRED_INDIVIDUAL_RECORD)
@@ -113,7 +113,7 @@ class Group:
             record.internal_code = ''
             record.concept = receipt['communication']
             record.due_date = receipt['maturity_date']
-            return write([record])
+            return retrofix_write([record])
 
         def set_optional_individual_record():
             record = Record(c58.OPTIONAL_INDIVIDUAL_RECORD)
@@ -125,7 +125,7 @@ class Group:
             record.concept_2 = ''
             record.concept_3 = ''
             record.concept_4 = ''
-            return write([record])
+            return retrofix_write([record])
 
         def set_address_individual_record():
             record = Record(c58.ADDRESS_INDIVIDUAL_RECORD)
@@ -140,7 +140,7 @@ class Group:
             record.ordering_city = values['city']
             record.province_code = values['province']
             record.origin_date = receipt['create_date']
-            return write([record])
+            return retrofix_write([record])
 
         def set_ordering_footer_record():
             record = Record(c58.ORDERING_FOOTER_RECORD)
@@ -151,7 +151,7 @@ class Group:
             record.amount = values['amount']
             record.payment_line_count = str(values['ordering_records'])
             record.record_count = str(values['ordering_record_count'])
-            return write([record])
+            return retrofix_write([record])
 
         def set_presenter_footer_record():
             record = Record(c58.PRESENTER_FOOTER_RECORD)
@@ -163,7 +163,7 @@ class Group:
             record.amount = values['amount']
             record.payment_line_count = str(values['ordering_records'])
             record.record_count = str(values['record_count'])
-            return write([record])
+            return retrofix_write([record])
 
         values = Group.set_default_csb58_payment_values(group)
         text = set_presenter_header_record()
