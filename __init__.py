@@ -2,11 +2,12 @@
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 from trytond.pool import Pool
-from .payment import *
+from . import payment
 
 
 def register():
     Pool.register(
-        Journal,
-        Group,
+        payment.BankAccount,
+        payment.Journal,
+        payment.Group,
         module='account_payment_es_csb_58', type_='model')
