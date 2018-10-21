@@ -77,8 +77,7 @@ province = {
 }
 
 
-class BankAccount:
-    __metaclass__ = PoolMeta
+class BankAccount(metaclass=PoolMeta):
     __name__ = 'bank.account'
 
     def get_first_other_number(self):
@@ -93,8 +92,7 @@ class BankAccount:
         return None
 
 
-class Journal:
-    __metaclass__ = PoolMeta
+class Journal(metaclass=PoolMeta):
     __name__ = 'account.payment.journal'
     csb58_include_domicile = fields.Boolean('Include Domicile')
 
@@ -132,8 +130,7 @@ class Journal:
                     })]
 
 
-class Group:
-    __metaclass__ = PoolMeta
+class Group(metaclass=PoolMeta):
     __name__ = 'account.payment.group'
 
     @classmethod
